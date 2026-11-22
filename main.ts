@@ -1,3 +1,6 @@
+// Tiny stack VM: exact implementation of the make.fun tiny stack ISA.
+// Wrapping i32 arithmetic, 256-value stack, 64-deep calls, 256 words of
+// memory, ten traps (exit codes 2-11), 1M-step and 64KiB-output limits.
 import{mkdirSync as M,readdirSync as R,readFileSync as F,writeFileSync as W}from'node:fs';
 import{join as J}from'node:path';
 const T={0:[0,0,0],1:[1,0,1],2:[4,0,1],3:[0,1,0],4:[0,1,2],5:[0,2,2],6:[0,2,3],7:[0,3,3],16:[0,2,1],17:[0,2,1],18:[0,2,1],19:[0,2,1],20:[0,2,1],21:[0,2,1],22:[0,2,1],23:[0,1,1],24:[0,2,1],25:[0,2,1],26:[0,2,1],27:[0,1,1],28:[0,2,1],29:[0,2,1],30:[0,2,1],32:[0,2,1],33:[0,2,1],34:[0,2,1],48:[2,0,0],49:[2,1,0],50:[2,1,0],51:[2,0,0],52:[0,0,0],64:[0,1,1],65:[0,2,0],80:[0,1,0],81:[0,1,0],82:[0,0,1],83:[0,1,0]};
